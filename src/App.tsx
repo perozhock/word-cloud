@@ -1,14 +1,17 @@
 import { useState } from "react";
 import "./App.css";
-import { TextInput, WordCloudComponent } from "./components/";
+import { InputPanel, WordCloudComponent } from "./components/";
+import { useMessageData } from "./hooks";
 
 function App() {
     const [text, setText] = useState("");
+    const { messages, fullText, setFileContent } = useMessageData();
 
     return (
         <div className="flex flex-col items-center gap-4 p-4">
-                <TextInput onChange={setText} />
-                <WordCloudComponent text={text} />
+            <span>{messages.length}</span>
+            <InputPanel onDataChange={setText} onFileLoad={setFileContent} />
+            <WordCloudComponent text={fullText || text} />
         </div>
     );
 }
