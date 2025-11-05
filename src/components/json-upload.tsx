@@ -22,12 +22,13 @@ export const JsonUpload = ({ onLoad }: Props) => {
         <label className="cursor-pointer inline-block">
             <span className="border bg-gray-400 px-3 py-1 rounded-md">
                 Загрузить JSON
+                <input
+                    className="cursor-pointer"
+                    type="file"
+                    accept="application/json"
+                    onChange={handleFile}
+                ></input>
             </span>
-            <input
-                type="file"
-                accept="application/json"
-                onChange={handleFile}
-            ></input>
         </label>
     );
 };
