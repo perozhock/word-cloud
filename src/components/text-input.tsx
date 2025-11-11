@@ -1,4 +1,5 @@
 import React from "react";
+import { textareaBase } from "./ui-styles";
 
 interface TextInputProps {
     onChange: (words: string) => void;
@@ -11,7 +12,7 @@ export const TextInput = ({ onChange }: TextInputProps) => {
 
     return (
         <textarea
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={textareaBase}
             rows={5}
             placeholder="Text here..."
             onChange={handleChange}

@@ -87,7 +87,7 @@ export const WordCloudComponent = ({ text }: WordCloudProps) => {
                 .range([minFontSize, maxFontSize]);
 
             const layout = cloud<Word>()
-                .size([1000, 500])
+                .size([1000, 1000])
                 .words(
                     filteredWordData.map((d) => ({
                         text: d.text,
@@ -130,9 +130,9 @@ export const WordCloudComponent = ({ text }: WordCloudProps) => {
     return (
         <svg
             ref={svgRef}
-            width="1000"
-            height="500"
-            className="border border-gray-300"
+            viewBox="0 0 1000 500"
+            preserveAspectRatio="xMidYMid meet"
+            className="w-full h-125 border border-gray-300 rounded-lg bg-white"
         />
     );
 };

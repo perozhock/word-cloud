@@ -1,4 +1,6 @@
 import React from "react";
+import { buttonPrimary } from "./ui-styles";
+import { UploadCloud } from "lucide-react";
 
 interface Props {
     onLoad: (content: string) => void;
@@ -19,15 +21,16 @@ export const JsonUpload = ({ onLoad }: Props) => {
     };
 
     return (
-        <label className="cursor-pointer inline-block">
-            <span className="border bg-gray-400 px-3 py-1 rounded-md">
-                Загрузить JSON
+        <label className="inline-block">
+            <span className={buttonPrimary}>
+                <UploadCloud size={16} />
+                <span>Загрузить JSON</span>
                 <input
-                    className="cursor-pointer"
                     type="file"
                     accept="application/json"
                     onChange={handleFile}
-                ></input>
+                    className="sr-only"
+                />
             </span>
         </label>
     );
