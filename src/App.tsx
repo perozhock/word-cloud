@@ -7,15 +7,17 @@ function App() {
     const [text, setText] = useState("");
     const { messages, userStats, fullText, setFileContent } = useMessageData();
 
-    console.log(userStats);
+    console.log(messages);
     return (
         <div className="max-w-5xl mx-auto p-6 space-y-6">
             <div className="text-sm text-gray-600">
-                {messages.length} сообщений
+                {messages.length} сообщений{" "}
+                {messages.length != 0 ? messages[0].date : 0} -{" "}
+                {messages.length != 0 ? messages[messages.length - 1].date : 0}
             </div>
 
             <InputPanel onDataChange={setText} onFileLoad={setFileContent} />
-            
+
             <div className="flex flex-col md:flex-row gap-6">
                 <div className="flex-1">
                     <WordCloudComponent text={fullText || text} />
